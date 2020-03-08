@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React, {Component} from 'react';
 
-const App = () => {
-  const [resource, setResource] = useState('posts');
+class App extends Component {
+  state =  {resource:'posts'};
 
-  return (
-    <div>
-      <button onClick={() => setResource('posts')}>Posts</button>
-      <button onClick={() => setResource('todos')}>Todos</button>
-      <div>{resource}</div>
-    </div>
-  );
+  render() {
+    return (
+      <div>
+        <button onClick={() => this.setState({resource: 'posts'})}>Posts</button>
+        <button onClick={() => this.setState({resource: 'todos'})}>Todos</button>
+        <div>{this.state.resource}</div>
+      </div>
+    );
+  }
 };
 
 export default App;
